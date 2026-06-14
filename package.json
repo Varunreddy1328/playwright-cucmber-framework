@@ -1,0 +1,23 @@
+{
+  "name": "playwright-cucmber-framework",
+  "version": "1.0.0",
+  "description": "Scalable Playwright BDD automation framework with Cucumber, Page Object Model, and CI/CD integration for enterprise-grade testing",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varunreddy1328/playwright-cucmber-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Varunreddy1328/playwright-cucmber-framework/issues"
+  },
+  "homepage": "https://github.com/Varunreddy1328/playwright-cucmber-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.3"
+  }
+}
