@@ -1,4 +1,5 @@
-const {test} = require ('@playwright/test');
+const {test,expect} = require ('@playwright/test');
+
 
 // test is a global function which is used to define a test case.
 //  It takes two arguments: the name of the test case and a callback function that contains the test code.
@@ -16,7 +17,10 @@ test('first test',async ({browser})=> {
 
 test('page fixture example',async ({page})=> {
  
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.goto("https://www.google.com/");
+    console.log(await page.title());
+    await expect(page).toHaveTitle("Google");
+
 
 })
 
