@@ -7,7 +7,7 @@ const {test,expect} = require ('@playwright/test');
 //. Destructuring is a JavaScript feature that allows you to extract values from arrays or properties from objects and assign them to variables in a more concise way.
 //  In this case, we are using destructuring to extract the test function from the @playwright/test module, allowing us to use it directly in our code without having to reference the module each time.
 
-test.only('first test',async ({browser})=> {
+test('first test',async ({browser})=> {
  
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -47,3 +47,19 @@ test('page fixture example',async ({page})=> {
 
 })
 
+test.only('Drop Down example',async ({page})=> {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const dropDown = page.locator('select.form-control');
+    const radioBtn = page.locator(".radiotextsty").nth(1)
+    const checkBox = page.locator("#terms");
+    await dropDown.selectOption('consult');
+    await expect(dropDown).toHaveValue('consult');
+    await radioBtn.click();
+    await page.locator("#okayBtn").click();
+    await expect(radioBtn).toBeChecked();
+    await checkBox.click();
+    await expect(checkBox).toBeChecked();
+    await checkBox.uncheck();
+    await expect(checkBox).not.toBeChecked();
+    
+});
