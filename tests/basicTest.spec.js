@@ -47,7 +47,7 @@ test('page fixture example',async ({page})=> {
 
 })
 
-test.only('Drop Down example',async ({page})=> {
+test('Drop Down example',async ({page})=> {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const dropDown = page.locator('select.form-control');
     const radioBtn = page.locator(".radiotextsty").nth(1)
@@ -62,4 +62,28 @@ test.only('Drop Down example',async ({page})=> {
     await checkBox.uncheck();
     await expect(checkBox).not.toBeChecked();
     
+});
+
+test.only('Child Window example',async ({browser})=> {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const userName = page.locator('#username');
+    const password = page.locator('#password');
+    const signInButton = page.locator('#signInBtn');
+    const cardTitles = page.locator('.card-body a');
+    const errorMessage = page.locator("[style*='block']");
+    const link = page.locator("a[href*='documents-request']");
+
+
+     const [newPage] = await Promise.all([
+         context.waitForEvent('page'),
+         link.click(),
+    ]);
+
+    const text = await newPage.locator('.red').textContent();
+    console.log(text);
+
+    // inputValue() -- when we want to extract input that is populated in run time
+
 });
