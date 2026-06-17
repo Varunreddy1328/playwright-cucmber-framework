@@ -64,7 +64,7 @@ test('Drop Down example',async ({page})=> {
     
 });
 
-test('Child Window example',async ({browser})=> {
+test.only('Child Window example',async ({browser})=> {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
