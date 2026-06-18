@@ -58,7 +58,7 @@ test('Drop Down example',async ({page})=> {
     await page.locator("#okayBtn").click();
     await expect(radioBtn).toBeChecked();
     await checkBox.click();
-    await expect(checkBox).toBeChecked();
+    await expect(checkBox).toBeChecked();   
     await checkBox.uncheck();
     await expect(checkBox).not.toBeChecked();
     
