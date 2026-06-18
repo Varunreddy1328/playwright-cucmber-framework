@@ -52,6 +52,7 @@ test.only('Drop Down example',async ({page})=> {
     const dropDown = page.locator('select.form-control');
     const radioBtn = page.locator(".radiotextsty").nth(1)
     const checkBox = page.locator("#terms");
+    const doclink = page.locator("a[href*='documents-request']");
     await dropDown.selectOption('consult');
     await expect(dropDown).toHaveValue('consult');
     await radioBtn.click();
@@ -61,5 +62,7 @@ test.only('Drop Down example',async ({page})=> {
     await expect(checkBox).toBeChecked();
     await checkBox.uncheck();
     await expect(checkBox).not.toBeChecked();
-    
+    await expect(doclink).toHaveAttribute("class","blinkingText");
 });
+
+
